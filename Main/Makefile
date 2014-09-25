@@ -39,6 +39,6 @@ archive: $(Module_1).o $(Module_2).o $(Module_3).o \
 
 #Delete object files and archive
 clean:
-	rm object/$(Module_1).o object/$(Module_2).o object/$(Module_3).o object/$(Module_4).o object/$(Module_5).o object/$(Module_6).o lib/libSSRNG.a
+	rm -f object/$(Module_1).o object/$(Module_2).o object/$(Module_3).o object/$(Module_4).o object/$(Module_5).o object/$(Module_6).o lib/libSSRNG.a
 
 
