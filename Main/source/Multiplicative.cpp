@@ -13,10 +13,14 @@ multRandom::multRandom(int iMin, int iMax, int iSeed, int iMultiplier)
 	seed = iSeed;
 	multiplier = iMultiplier;
 
-	range = max - min;
+	range = max - min +1;
 	offset = 0 - min;
 }
 
-multRandom::
+int multRandom::nextInt()
+{
+	seed = ((seed+offset)*multiplier)%range + min;
+	return seed;
+}
 
 }
