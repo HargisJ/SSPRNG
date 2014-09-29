@@ -20,6 +20,5 @@ struct multRandom
 	int nextInt();
 
 	}
-
 }
 #endif
