@@ -4,7 +4,7 @@
 namespace SSPRNG{
 
 //Class for a linear congruential random number generator
-struct LinRand
+struct LinRandom
 {
 	int seed;
 	int addend;
@@ -13,12 +13,12 @@ struct LinRand
 	int offset;
 	int range;
 
-	int LinRand(int, int, int, int);
-	int ~LinRand();
+	LinRandom(int, int, int, int);
+	~LinRandom();
 
 	int nextInt();
-}
+};
 
+} //namespace SSPRNG
 
-}
 #endif

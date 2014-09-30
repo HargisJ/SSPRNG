@@ -1,5 +1,5 @@
-#ifndef _MULTIPLICATIVE
-#define _MULTIPLICATIVE
+#ifndef _MULTIPLICATIVE_PRNG
+#define _MULTIPLICATIVE_PRNG
 
 namespace SSPRNG
 {
@@ -19,6 +19,8 @@ struct multRandom
 
 	int nextInt();
 
-	}
-}
+};
+
+} //namespace SSPRNG
+
 #endif
