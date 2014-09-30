@@ -1,4 +1,4 @@
-#include "<Linear.h"
+#include "Linear.h"
 #include <assert.h>
 
 namespace SSPRNG
