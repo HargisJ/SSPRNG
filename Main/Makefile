@@ -10,7 +10,7 @@ Module_6 := ISAAC
 edit: $(Module_1).o $(Module_2).o $(Module_3).o $(Module_4).o $(Module_5).o $(Module_6).o archive
 	
 #Clean, then compile
-all: clean $(Module_1).o $(Module_2).o $(Module_3).o $(Module_4).o $(Module_5).o $(Module_6).o archive
+all: clean $(Module_1).o $(Module_2).o $(Module_3).o $(Module_4).o $(Module_5).o $(Module_6).o archive docs
 	
 #Create module object files (.o)
 $(Module_1).o:source/$(Module_1).cpp source/$(Module_1).h
@@ -37,8 +37,11 @@ archive: $(Module_1).o $(Module_2).o $(Module_3).o \
 	ar crv lib/libSSPRNG.a object/$(Module_1).o object/$(Module_2).o object/$(Module_3).o \
 	object/$(Module_4).o object/$(Module_5).o object/$(Module_6).o
 
+docs: 
+	doxygen source/Doxyfile
+
 #Delete object files and archive
 clean:
-	rm -f object/$(Module_1).o object/$(Module_2).o object/$(Module_3).o object/$(Module_4).o object/$(Module_5).o object/$(Module_6).o lib/libSSRNG.a
+	rm -rf object/$(Module_1).o object/$(Module_2).o object/$(Module_3).o object/$(Module_4).o object/$(Module_5).o object/$(Module_6).o lib/libSSRNG.a ./docs/html ./docs/latex
 
 
