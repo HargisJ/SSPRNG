@@ -6,12 +6,12 @@ Module_4 := MarsenneTwister
 Module_5 := Multiplicative
 Module_6 := ISAAC
 
+#Clean, then compile
+all: clean dir $(Module_1).o $(Module_2).o $(Module_3).o $(Module_4).o $(Module_5).o $(Module_6).o archive docs
+
 #Compile changes
 edit: $(Module_1).o $(Module_2).o $(Module_3).o $(Module_4).o $(Module_5).o $(Module_6).o archive
-	
-#Clean, then compile
-all: clean $(Module_1).o $(Module_2).o $(Module_3).o $(Module_4).o $(Module_5).o $(Module_6).o archive docs
-	
+		
 #Create module object files (.o)
 $(Module_1).o:source/$(Module_1).cpp source/$(Module_1).h
 		g++ -c source/$(Module_1).cpp -o object/$(Module_1).o
@@ -37,11 +37,15 @@ archive: $(Module_1).o $(Module_2).o $(Module_3).o \
 	ar csrv lib/libSSPRNG.a object/$(Module_1).o object/$(Module_2).o object/$(Module_3).o \
 	object/$(Module_4).o object/$(Module_5).o object/$(Module_6).o
 
+#Create directories
+dir:
+	mkdir -p lib object
+
 docs: 
-	doxygen source/Doxyfile
+	doxygen ./source/Doxyfile
 
 #Delete object files and archive
 clean:
-	rm -rf object/$(Module_1).o object/$(Module_2).o object/$(Module_3).o object/$(Module_4).o object/$(Module_5).o object/$(Module_6).o lib/libSSPRNG.a ./docs/html ./docs/latex
+	rm -rf object/$(Module_1).o object/$(Module_2).o object/$(Module_3).o object/$(Module_4).o object/$(Module_5).o object/$(Module_6).o lib/libSSPRNG.a ./docs
 
 

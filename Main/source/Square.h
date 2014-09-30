@@ -12,7 +12,7 @@ struct SquareRandom
 	int offset;
 	int range;
 
-	SquareRandom(int, int, int);
+	SquareRandom(int min, int max, int seed);
 	~SquareRandom();
 
 	int nextInt();
