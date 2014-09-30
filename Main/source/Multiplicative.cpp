@@ -8,7 +8,7 @@ multRandom::multRandom(int iMin, int iMax, int iSeed, int iMultiplier)
 {
 	min = iMin;
 	max = iMax;
-	assert(min < max);
+	//assert(min < max);
 
 	seed = iSeed;
 	multiplier = iMultiplier;
@@ -17,10 +17,15 @@ multRandom::multRandom(int iMin, int iMax, int iSeed, int iMultiplier)
 	offset = 0 - min;
 }
 
-int multRandom::nextInt()
+multRandom::~multRandom()
+{
+
+}
+
+int multRandom::nextInt() //Calculates and returns the next integer
 {
 	seed = ((seed+offset)*multiplier)%range + min;
 	return seed;
 }
 
-}
+}//namespace SSPRNG
