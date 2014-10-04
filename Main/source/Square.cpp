@@ -16,6 +16,11 @@ SquareRandom::SquareRandom(int iMin, int iMax, int iSeed)
 	offset = 0 - min;
 }
 
+int SquareRandom::~SquareRandom()
+{
+
+}
+
 int SquareRandom::nextInt()
 {
 	seed = (seed*seed + offset)%range + min;

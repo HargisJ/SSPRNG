@@ -17,6 +17,11 @@ LinRandom::LinRandom(int iMin, int iMax, int iSeed, int iAddend)
 	offset = 0 - min;
 }
 
+LinRandom::~LindRandom()
+{
+
+}
+
 int LinRandom::nextInt()
 {
 	seed = ((seed+offset)+addend)%range + min;
