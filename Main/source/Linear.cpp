@@ -17,7 +17,7 @@ LinRandom::LinRandom(int iMin, int iMax, int iSeed, int iAddend)
 	offset = 0 - min;
 }
 
-LinRandom::~LindRandom()
+LinRandom::~LinRandom()
 {
 
 }
