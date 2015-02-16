@@ -1,2 +1,2 @@
 Test:
-	g++ Test1.cpp -o Test -Ilib -Llib -lSSPRNG
+	g++ Test1.cpp -o Test -Ilib -Llib -lSSPRNG 
