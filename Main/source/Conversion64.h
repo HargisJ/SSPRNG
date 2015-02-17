@@ -1,6 +1,9 @@
 #ifndef _CONVERSION64
 #define _CONVERSION64
 
+#include "Parent.h"
+#include <stdint.h>
+
 namespace SSPRNG
 {	
 
@@ -12,32 +15,39 @@ bool TestInt(long long int i);
 
 int BitsRequired(long long int i);
 
-//
+
+/*****************************************************************
+* Class for breaking a 64 bit integer into an array of what are 
+* essentially 3 bit integers that can be used for values from 0 through 7. 
+* Intended specifically for dice rolls.
+*
+* Uses a function pointer to simply get a 64 bit integer from a PRNG
+******************************************************************/
 class dieRoll{
 public:
 	dieRoll();
-	dieRoll(unsigned long long int (*)());
+	dieRoll(Random64 *);
 
 	~dieRoll();
 
-	void setFunction(unsigned long long int (*)());
+	void setGenerator(Random64 *);
 
 	unsigned int getNext();
 
-	unsigned long long int get_current_Long();
+	uint64_t get_current_64();
 
 	unsigned int current_Index;
 
+private:	
+	uint64_t current_64;
 
-private:
-	unsigned long long int (*get_64_Int)();
-
-	unsigned long long int current_Long_Long;
+	Random64 * gen;
 
 	unsigned int roll[21];
 
 	void breakUp();
 };
+
 
 }
 

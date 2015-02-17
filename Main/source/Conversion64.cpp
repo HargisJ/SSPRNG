@@ -1,6 +1,9 @@
 #include <iostream>
 #include "Conversion64.h"
+#include "Parent.h"
 #include <cmath>
+#include <stdint.h>
+
 
 namespace SSPRNG
 {
@@ -45,10 +48,10 @@ dieRoll::dieRoll(){
 	current_Index = 0;
 }
 
-dieRoll::dieRoll(unsigned long long int(*function)()){
+dieRoll::dieRoll(Random64 * inGen){
 	current_Index = 0;
-	get_64_Int = function;
-	current_Long_Long = get_64_Int();
+	gen = inGen;
+	current_64 = gen->next();
 	breakUp();
 }
 
@@ -56,8 +59,8 @@ dieRoll::~dieRoll(){
 
 }
 
-void dieRoll::setFunction(unsigned long long int (*function)()){
-	get_64_Int = function;
+void dieRoll::setGenerator(Random64 * inGen){
+	gen = inGen;
 }
 
 unsigned int dieRoll::getNext(){
@@ -65,7 +68,7 @@ unsigned int dieRoll::getNext(){
 		current_Index++;
 		return roll[current_Index - 1];
 	}else{
-		current_Long_Long = get_64_Int();
+		current_64 = gen->next();
 		breakUp();
 		current_Index = 0;
 		return roll[current_Index];
@@ -74,13 +77,13 @@ unsigned int dieRoll::getNext(){
 
 void dieRoll::breakUp(){
 	for(int i = 0; i < 21; i++){
-		roll[i] = 7 & (current_Long_Long >> (3*i));
+		roll[i] = 7 & (current_64 >> (3*i));
 		//roll[i] = current_Long_Long;
 	}
 }
 
-unsigned long long int dieRoll::get_current_Long(){
-	return current_Long_Long;
+uint64_t dieRoll::get_current_64(){
+	return current_64;
 }
 
 
