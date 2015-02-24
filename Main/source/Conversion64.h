@@ -7,13 +7,13 @@
 namespace SSPRNG
 {	
 
-void LongLongToDouble(long long int i, double& d);
+void Int64ToDouble(uint64_t i, double& d);
 
-void LongLongToDoubleDivide(long long int i, double& d);
+void Int64ToDoubleDivide(uint64_t i, double& d);
 
-bool TestInt(long long int i);
+bool TestInt(uint64_t i);
 
-int BitsRequired(long long int i);
+int BitsRequired(uint64_t i);
 
 
 /*****************************************************************

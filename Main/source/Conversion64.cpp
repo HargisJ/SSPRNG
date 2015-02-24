@@ -9,7 +9,7 @@ namespace SSPRNG
 {
 
 //Convert a 64 bit integer to a double
-void LongLongToDouble(long long int i, double& d)
+void Int64ToDouble(uint64_t i, double& d)
 {
 	i = i & 0x3FFFFFFFFFFFFFFF;
 	void* vPtr = &i;
@@ -19,13 +19,13 @@ void LongLongToDouble(long long int i, double& d)
 }
 
 //Convert a 64 bit integer to a double using division
-void LongLongToDoubleDivide(long long int i, double& d)
+void Int64ToDoubleDivide(uint64_t i, double& d)
 {
 	d = double(i) / (pow(2,64) - 1);
 }
 
 //Test an integer to see if its bits will translate to a double between 0 and 1
-bool TestInt(long long int i)
+bool TestInt(uint64_t i)
 {
 	if(((i & 0x3FF0000000000000) ^ 0x3FF0000000000000) || i == 0 || i == 0x3FF0000000000000)
 	{
@@ -36,7 +36,7 @@ bool TestInt(long long int i)
 }
 
 //Return the number of bits necessary
-int BitsRequired(long long int i)
+int BitsRequired(uint64_t i)
 {
 	double d = log2 (i);
 	return int(d);

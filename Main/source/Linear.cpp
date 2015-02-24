@@ -1,20 +1,13 @@
 #include "Linear.h"
-#include <assert.h>
 
 namespace SSPRNG
 {
 
-LinRandom::LinRandom(int iMin, int iMax, int iSeed, int iAddend)
+LinRandom::LinRandom(uint64_t iSeed, uint64_t iMultiplier, uint64_t iAddend)
 {
-	min = iMin;
-	max = iMax;
-	assert(min < max);
-
-	seed = iSeed;
+	value = iSeed;
 	addend = iAddend;
-
-	range = max - min + 1;
-	offset = 0 - min;
+	multiplier = iMultiplier;
 }
 
 LinRandom::~LinRandom()
@@ -22,10 +15,22 @@ LinRandom::~LinRandom()
 
 }
 
-int LinRandom::nextInt()
+void LinRandom::Seed(uint64_t x){
+	value = x;
+}
+
+void LinRandom::setMultiplier(uint64_t x){
+	multiplier = x;
+}
+
+void LinRandom::setAddend(uint64_t x){
+	addend = x;
+}
+
+uint64_t LinRandom::next()
 {
-	seed = ((seed+offset)+addend)%range + min;
-	return seed;
+	value = multiplier*value + addend;
+	return value;
 }
 
 }
