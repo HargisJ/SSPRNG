@@ -1,12 +1,13 @@
 #ifndef _LINEAR_PRNG
 #define _LINEAR_PRNG
 
+#include "Parent.h"
 #include <stdint.h>
 
 namespace SSPRNG{
 
 //Class for a linear congruential random number generator
-class LinRandom
+class LinRandom: public Random64
 {
 public:
 	LinRandom(uint64_t, uint64_t, uint64_t);

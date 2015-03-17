@@ -5,7 +5,8 @@
 
 namespace SSPRNG{
 
-class xorshift128_plus: public Random64 {
+class xorshift128_plus: public Random64 
+{
 public:
 	xorshift128_plus();
 
