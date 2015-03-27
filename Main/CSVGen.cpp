@@ -14,7 +14,6 @@ int main(){
 	// typedef std::chrono::high_resolution_clock myclock;
 	// myclock::time_point beginning = myclock::now();
 	// myclock::duration d = myclock::now();
-	
 
 	
 

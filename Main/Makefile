@@ -1,9 +1,9 @@
 #Define modules
 Module_1 := Linear
 Module_2 := Square
-Module_3 := MiddleSquare
-Module_4 := MarsenneTwister
-Module_5 := Multiplicative
+Module_3 := XORShift
+Module_4 := MersenneTwister
+Module_5 := Blank
 Module_6 := ISAAC
 Module_7 := Conversion64
 
@@ -15,25 +15,25 @@ edit: $(Module_1).o $(Module_2).o $(Module_3).o $(Module_4).o $(Module_5).o $(Mo
 		
 #Create module object files (.o)
 $(Module_1).o:source/$(Module_1).cpp source/$(Module_1).h
-		g++ -c source/$(Module_1).cpp -o object/$(Module_1).o
+		g++ -std=c++11 -c source/$(Module_1).cpp -o object/$(Module_1).o
 
 $(Module_2).o:source/$(Module_2).cpp source/$(Module_2).h
-		g++ -c source/$(Module_2).cpp -o object/$(Module_2).o
+		g++ -std=c++11 -c source/$(Module_2).cpp -o object/$(Module_2).o
 
 $(Module_3).o:source/$(Module_3).cpp source/$(Module_3).h
-		g++ -c source/$(Module_3).cpp -o object/$(Module_3).o
+		g++ -std=c++11 -c source/$(Module_3).cpp -o object/$(Module_3).o
 
 $(Module_4).o:source/$(Module_4).cpp source/$(Module_4).h
-		g++ -c source/$(Module_4).cpp -o object/$(Module_4).o
+		g++ -std=c++11 -c source/$(Module_4).cpp -o object/$(Module_4).o
 
 $(Module_5).o:source/$(Module_5).cpp source/$(Module_5).h
-		g++ -c source/$(Module_5).cpp -o object/$(Module_5).o
+		g++ -std=c++11 -c source/$(Module_5).cpp -o object/$(Module_5).o
 
 $(Module_6).o:source/$(Module_6).cpp source/$(Module_6).h
-		g++ -c source/$(Module_6).cpp -o object/$(Module_6).o
+		g++ -std=c++11 -c source/$(Module_6).cpp -o object/$(Module_6).o
 
 $(Module_7).o:source/$(Module_7).cpp source/$(Module_7).h
-		g++ -c source/$(Module_7).cpp -o object/$(Module_7).o
+		g++ -std=c++11 -c source/$(Module_7).cpp -o object/$(Module_7).o
 
 
 #Build library (.a)
